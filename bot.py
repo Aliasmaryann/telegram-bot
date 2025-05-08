@@ -43,6 +43,10 @@ def handle_message(text):
         return "Soy el bot de Maria Arias, creado para ayudarte."
     elif text == "como estas":
         return "Estoy bien, gracias por preguntar."
+    elif text == "donde estudias":
+        return "En el instituto AIEP."
+    elif text == "aprobaste?":
+        return "Si! Pude aprobar todos los modulos."
     else:
         return "No te he entendido. Intenta con /start, hola, info o '¿cómo estás?'"
 
