@@ -2,6 +2,7 @@ import os
 import requests
 from flask import Flask, request
 import telegram  # Asegúrate de que `python-telegram-bot` está instalado
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -52,9 +53,10 @@ def send_message(chat_id, text):
     message_url = f"{URL}/sendMessage?chat_id={chat_id}&text={text}"
     requests.get(message_url)
 
+
+
 if __name__ == "__main__":
-    # El puerto se toma del entorno de Render
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
+    serve(app, host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
 
     # Establecer el webhook cuando se inicie el servidor
     set_webhook()
